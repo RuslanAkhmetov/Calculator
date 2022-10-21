@@ -5,15 +5,15 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/castle_kingdom"
-    android:scaleType = "centerCrop"
-    tools:context=".MainActivity">
+    tools:context=".ui.CalculatorActivity">
 
     <TextView
+        android:id="@+id/result"
         android:layout_width="match_parent"
-        android:layout_height="@dimen/default_text_view_size"
+        android:layout_height="0dp"
         android:text="Hello World!"
+        android:textColor="@color/white"
         android:textSize="@dimen/default_text_size"
-        android:textColor="@color/teal_200"
         app:layout_constraintBottom_toTopOf="@id/separator"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -24,9 +24,9 @@
         android:layout_width="0dp"
         android:layout_height="1dp"
         android:background="#000008"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/key_1"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintBottom_toTopOf="@id/key_1"/>
+        app:layout_constraintStart_toStartOf="parent" />
 
     <Button
         android:id="@+id/key_1"
@@ -77,8 +77,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/key_5"
-        app:layout_constraintStart_toEndOf="@id/key_4"
         app:layout_constraintEnd_toStartOf="@id/key_6"
+        app:layout_constraintStart_toEndOf="@id/key_4"
         app:layout_constraintTop_toBottomOf="@id/key_2" />
 
 
@@ -142,6 +142,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/key_0"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/key_dot"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/key_7" />
@@ -151,6 +152,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/key_dot"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@id/key_equal"
         app:layout_constraintStart_toEndOf="@id/key_0"
         app:layout_constraintTop_toBottomOf="@id/key_8" />
@@ -160,6 +162,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/key_equal"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@id/key_minus"
         app:layout_constraintStart_toEndOf="@id/key_dot"
         app:layout_constraintTop_toBottomOf="@id/key_9" />
@@ -169,6 +172,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/key_minus"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@id/key_equal"
         app:layout_constraintTop_toBottomOf="@id/key_9" />
