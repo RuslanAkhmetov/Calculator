@@ -11,11 +11,11 @@ import java.text.DecimalFormat;
 
 public class CalculatorPresenter  {
 
-    private CalculatorView view;
+    private final CalculatorView view;
 
-    private DecimalFormat formatter = new DecimalFormat("#.#####");
+    private final DecimalFormat formatter = new DecimalFormat("#.#####");
 
-    private Calculator calculator;
+    private final Calculator calculator;
 
     CalculatorState calculatorState;
 
@@ -96,11 +96,10 @@ public class CalculatorPresenter  {
         if (calculatorState.selectedOperator!= null && calculatorState.argTwo != null){
             calculatorState.argOne = calculator.perform(calculatorState.argOne, calculatorState.argTwo, calculatorState.selectedOperator);
             showFormatted(calculatorState.argOne);
-            calculatorState.argTwo = null;
+            calculatorState.selectedOperator = null;
+            calculatorState.argTwo = 0.0;
             calculatorState.isDotPressed = false;
             calculatorState.exponent = -1;
-            calculatorState.argOne = 0.0;
-            calculatorState.selectedOperator = null;
         }
     }
 
@@ -109,7 +108,7 @@ public class CalculatorPresenter  {
     }
 
     private  void showFormatted(double value){
-       view.showResult(formatter.format(value).toString());
+       view.showResult(formatter.format(value));
     }
 
     /*@Override
