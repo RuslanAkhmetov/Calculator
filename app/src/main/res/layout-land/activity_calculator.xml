@@ -1,11 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/sea_horizon"
     tools:context=".ui.CalculatorActivity">
+    <!--android:theme="@style/Theme.Calculator"-->
 
     <TextView
         android:id="@+id/result"
@@ -32,8 +34,8 @@
         android:id="@+id/key_1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:cornerRadius="@dimen/buttonRadius"
         android:text="@string/key_1"
+        app:cornerRadius="@dimen/buttonRadius"
         app:layout_constraintEnd_toStartOf="@id/key_2"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/separator" />
@@ -42,8 +44,8 @@
         android:id="@+id/key_2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:cornerRadius="@dimen/buttonRadius"
         android:text="@string/key_2"
+        app:cornerRadius="@dimen/buttonRadius"
         app:layout_constraintEnd_toStartOf="@id/key_3"
         app:layout_constraintStart_toEndOf="@id/key_1"
         app:layout_constraintTop_toBottomOf="@id/separator" />
@@ -52,8 +54,8 @@
         android:id="@+id/key_3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:cornerRadius="@dimen/buttonRadius"
         android:text="@string/key_3"
+        app:cornerRadius="@dimen/buttonRadius"
         app:layout_constraintEnd_toStartOf="@id/key_multiple"
         app:layout_constraintStart_toEndOf="@id/key_2"
         app:layout_constraintTop_toBottomOf="@id/separator" />
@@ -62,8 +64,8 @@
         android:id="@+id/key_plus"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:cornerRadius="@dimen/buttonRadius"
         android:text="@string/key_plus"
+        app:cornerRadius="@dimen/buttonRadius"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@id/key_3"
         app:layout_constraintTop_toBottomOf="@id/separator" />
@@ -72,8 +74,8 @@
         android:id="@+id/key_4"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:cornerRadius="@dimen/buttonRadius"
         android:text="@string/key_4"
+        app:cornerRadius="@dimen/buttonRadius"
         app:layout_constraintStart_toStartOf="@id/key_1"
         app:layout_constraintTop_toBottomOf="@id/key_1" />
 
@@ -81,19 +83,18 @@
         android:id="@+id/key_5"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:cornerRadius="@dimen/buttonRadius"
         android:text="@string/key_5"
+        app:cornerRadius="@dimen/buttonRadius"
         app:layout_constraintEnd_toStartOf="@id/key_6"
         app:layout_constraintStart_toEndOf="@id/key_4"
         app:layout_constraintTop_toBottomOf="@id/key_2" />
-
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/key_6"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:cornerRadius="@dimen/buttonRadius"
         android:text="@string/key_6"
+        app:cornerRadius="@dimen/buttonRadius"
         app:layout_constraintEnd_toStartOf="@id/key_multiple"
         app:layout_constraintStart_toEndOf="@id/key_5"
         app:layout_constraintTop_toBottomOf="@id/key_3" />
@@ -102,8 +103,8 @@
         android:id="@+id/key_multiple"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:cornerRadius="@dimen/buttonRadius"
         android:text="@string/key_multiple"
+        app:cornerRadius="@dimen/buttonRadius"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@id/key_3"
         app:layout_constraintTop_toBottomOf="@id/key_plus" />
@@ -112,8 +113,8 @@
         android:id="@+id/key_7"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:cornerRadius="@dimen/buttonRadius"
         android:text="@string/key_7"
+        app:cornerRadius="@dimen/buttonRadius"
         app:layout_constraintEnd_toStartOf="@id/key_8"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/key_4" />
@@ -122,8 +123,8 @@
         android:id="@+id/key_8"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:cornerRadius="@dimen/buttonRadius"
         android:text="@string/key_8"
+        app:cornerRadius="@dimen/buttonRadius"
         app:layout_constraintEnd_toStartOf="@id/key_9"
         app:layout_constraintStart_toEndOf="@id/key_7"
         app:layout_constraintTop_toBottomOf="@id/key_5" />
@@ -133,8 +134,8 @@
         android:id="@+id/key_9"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:cornerRadius="@dimen/buttonRadius"
         android:text="@string/key_9"
+        app:cornerRadius="@dimen/buttonRadius"
         app:layout_constraintEnd_toStartOf="@id/key_divide"
         app:layout_constraintStart_toEndOf="@id/key_8"
         app:layout_constraintTop_toBottomOf="@id/key_6" />
@@ -143,8 +144,8 @@
         android:id="@+id/key_divide"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:cornerRadius="@dimen/buttonRadius"
         android:text="@string/key_divide"
+        app:cornerRadius="@dimen/buttonRadius"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@id/key_9"
         app:layout_constraintTop_toBottomOf="@id/key_multiple" />
@@ -153,9 +154,8 @@
         android:id="@+id/key_0"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:cornerRadius="@dimen/buttonRadius"
         android:text="@string/key_0"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:cornerRadius="@dimen/buttonRadius"
         app:layout_constraintEnd_toStartOf="@+id/key_dot"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/key_7" />
@@ -164,9 +164,8 @@
         android:id="@+id/key_dot"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:cornerRadius="@dimen/buttonRadius"
         android:text="@string/key_dot"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:cornerRadius="@dimen/buttonRadius"
         app:layout_constraintEnd_toStartOf="@id/key_equal"
         app:layout_constraintStart_toEndOf="@id/key_0"
         app:layout_constraintTop_toBottomOf="@id/key_8" />
@@ -175,22 +174,33 @@
         android:id="@+id/key_equal"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:cornerRadius="@dimen/buttonRadius"
         android:text="@string/key_equal"
+        app:cornerRadius="@dimen/buttonRadius"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@id/key_minus"
         app:layout_constraintStart_toEndOf="@id/key_dot"
-        app:layout_constraintTop_toBottomOf="@id/key_9" />
+        app:layout_constraintTop_toBottomOf="@id/key_9"
+        app:layout_constraintBottom_toTopOf="@+id/theme"/>
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/key_minus"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:cornerRadius="@dimen/buttonRadius"
         android:text="@string/key_minus"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:cornerRadius="@dimen/buttonRadius"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@id/key_equal"
         app:layout_constraintTop_toBottomOf="@id/key_9" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/theme"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:cornerRadius="@dimen/buttonRadius"
+        android:text="@string/theme_select"
+        app:layout_constraintTop_toBottomOf="@id/key_minus"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

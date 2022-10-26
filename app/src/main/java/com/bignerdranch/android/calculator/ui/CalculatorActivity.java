@@ -1,16 +1,28 @@
 package com.bignerdranch.android.calculator.ui;
 
+import androidx.activity.result.ActivityResult;
+import androidx.activity.result.ActivityResultCallback;
+import androidx.activity.result.ActivityResultLauncher;
+import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.Activity;
+import android.content.Context;
+import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
 
 import com.bignerdranch.android.calculator.R;
 import com.bignerdranch.android.calculator.model.CalculatorImpl;
 import com.bignerdranch.android.calculator.model.Operator;
+import com.bignerdranch.android.calculator.model.Theme;
+import com.bignerdranch.android.calculator.model.ThemeRepository;
+import com.bignerdranch.android.calculator.model.ThemeRepositoryImpl;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -21,15 +33,29 @@ public class CalculatorActivity extends AppCompatActivity implements CalculatorV
 
     private CalculatorPresenter presenter;
 
+    private ThemeRepository themeRepository;
+
+
+
     private final String TAG = "Calculator ActivityTAG";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        themeRepository = ThemeRepositoryImpl.getInstance(this);
+
+        setTheme(themeRepository.getSavedTheme().getThemeRes());
+
         setContentView(R.layout.activity_calculator);
 
         resultTxt = findViewById(R.id.result);
 
+        if (getIntent().hasExtra("message")){
+            showResult(getIntent().getStringExtra("message"));
+        }
+
         presenter = new CalculatorPresenter(this, new CalculatorImpl(), new CalculatorState());
+
         if (savedInstanceState != null) {
             showResult(savedInstanceState.getString("result_key"));
             presenter.calculatorState = savedInstanceState.getParcelable("calculatorState");
@@ -79,6 +105,23 @@ public class CalculatorActivity extends AppCompatActivity implements CalculatorV
         findViewById(R.id.key_equal).setOnClickListener(view -> presenter.onEqualListener());
 
         findViewById(R.id.key_dot).setOnClickListener( view ->  presenter.onDotListener());
+
+        ActivityResultLauncher<Intent> themeLauncher = registerForActivityResult(new ActivityResultContracts.StartActivityForResult(), result-> {
+            if (result.getResultCode() == Activity.RESULT_OK) {
+                Intent intent = result.getData();
+                Theme selected = (Theme) intent.getSerializableExtra(SelectThemeActivity.EXTRA_THEME);
+                themeRepository.saveTheme(selected);
+                recreate();
+            }
+        });
+
+        findViewById(R.id.theme).setOnClickListener(view -> {
+            Intent intent = new Intent(CalculatorActivity.this, SelectThemeActivity.class);
+
+            intent.putExtra(SelectThemeActivity.EXTRA_THEME, themeRepository.getSavedTheme() );
+
+            themeLauncher.launch(intent);
+        });
 
     }
 
